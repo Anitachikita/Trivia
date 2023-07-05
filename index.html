@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function(){
+
+                let right = document.querySelector('.right');
+                right.addEventListener('click', function(){
+                    right.style.backgroundColor = 'green';
+                    document.querySelector("#answer").innerHTML = "Correct!";
+                });
+
+                let wrong = document.querySelectorAll('.wrong');
+                for (let i = 0; i < wrong.length; i++)
+                {
+                    wrong[i].addEventListener("click", function(){
+                        wrong[i].style.backgroundColor = 'red';
+                        document.querySelector("#answer").innerHTML = "incorrect!"
+                    });
+                }
+
+                document.querySelector("#Check_answer").addEventListener('click', function(){
+                    let input = document.querySelector("input");
+                    if (input.value.toLowerCase() == "four" || input.value == "4" ){
+                        input.style.backgroundColor = 'green';
+                        document.querySelector("#message").innerHTML = "Correct!"
+                    }
+                    else {
+                        input.style.backgroundColor = 'red'
+                        document.querySelector("#message").innerHTML = "Incorrect!"
+                    }
+                })
+
+
+            })
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which is the largest planet in the solar system?</h3>
+                <button type ="text" class = "wrong">Saturn</button>
+                <button type ="text" class = "wrong">Earth</button>
+                <button type ="text" class = "right">Jupiter</button>
+                <button type ="text" class = "wrong">Mars</button>
+                <button type ="text" class = "wrong">Uranus</button>
+
+                <p id = "answer" ></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In how many years Olympics are held? </h3>
+                <form>
+                    <input type ="text" placeholder ="Number">
+                    <button id = "Check_answer">Check Answer</button>
+                    <p id = "message" ></p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
